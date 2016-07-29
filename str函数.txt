@@ -1,0 +1,51 @@
+模拟实现strstr函数。
+char * my_strstr ( char * str, const char * substr) 
+{ 
+
+           int i , j, k;
+           assert(str ); 
+           assert(substr ); 
+           for (i = 0; str[ i] != '\0' ; i++) 
+          { 
+                    for (j = i, k = 0; (substr [k] != '\0')&&(str [j] == substr[k ]); j++, k++) 
+                   { 
+                             ; 
+                   } 
+                    if (substr [k] == '\0'&&k > 0) 
+                              return &str [i]; 
+          } 
+           return NULL ; 
+}
+int main ()
+{
+           char str [] = "abbbbcdes";
+           const char key[] = "bbc";
+           printf("%s\n" ,my_strstr( str,key ));
+           return 0 ;
+}
+模拟实现strncat函数。
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+void my_strncat (char * str,char *str2, int len )
+{
+           char *p = str;
+           while(*str )
+          {
+                   * str++;
+          }
+           str[len ] = '\0';
+          * str -= len ;
+           while(len )
+          {
+                   * str++ = *str2 ++;
+                    len--;
+          }
+}
+int main ()
+{
+           char arr [20] = "abcdef";
+           my_strncat(arr ,arr, strlen(arr ));
+           printf("%s\n" ,arr);
+           return 0;
+}
